@@ -18,6 +18,20 @@
 
 - [Nginx CommandLine](03.3-nginx-cmd.md)
 
+- [Nginx Interview Question](03.4-interview-question.md)
+
+## File Permission
+
+[File Permission](04-File_permission.md)
+
+## Install Composer
+
+[Install Composer](05-Install-composer.md)
+
+## Apache2 Problem
+
+[Apache2 Problem](06-APACHE2-2-PHP-PHPMYADMIN-problem-Ubuntu20-mainly-for-APACHE2.md)
+
 ---
 
 [BACK Main](../README.md)

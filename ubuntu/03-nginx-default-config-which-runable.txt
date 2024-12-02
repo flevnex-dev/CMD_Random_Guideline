@@ -124,3 +124,9 @@ server {
 
 	# Add index.php to the list if you are using PHP
 	index index.php index.html index.htm index.nginx-debian.html;   // Add index.php - for php index file load
+
+---
+
+[BACK Ubuntu Main](ubuntu-main.md)
+<br/>
+[BACK Main](../README.md)
