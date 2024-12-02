@@ -1,0 +1,122 @@
+### Proper Method - Also quick
+
+------- Check ssh are exist or not
+        ---- If exist check again for added to agent or not
+            --- If added to agent use it anywhere this key
+            --- Else need to add ssh to ssh-agent and then use anywhere
+        ---- Else Create ssh and process are below
+ls -al ~/.ssh
+
+------------ Create SSH
+asifulmamun@asifulmamun-ubuntu:~$ ssh-keygen -t rsa -b 4096 -f ~/.ssh/default -C "My default ssh"
+    ssh-keygen          // Tell to create ssh key
+    -t rsa              // Key encryption type is rsa
+    -b 4096             // SSH key size of bytes, there are 4kb or 4096 bytes of size ssh key
+    -C "My default ssh" // There -C is for comment and under Quote "" is comment, which is not important but it's comment for understand easily.
+
+----------- Agnet init
+asifulmamun@asifulmamun-ubuntu:~$ eval "$(ssh-agent -s)"
+
+
+----------- Added the ssh to agent
+asifulmamun@asifulmamun-ubuntu:~$ ssh-add ~/.ssh/default
+
+
+----------- Check which ssh keys are added/available to agent
+asifulmamun@asifulmamun-ubuntu:~$ ssh-add -l
+
+
+
+-------------- PUSHING TIME / MULTI PRIVATE KEY WORK MULTI ACCOUNT @github ------------------------
+---------------------------------------------------------------------------------------------------
+Creat New SSH> Add public key to another github or exist github> comman with private key like below
+        $ GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa' git push origin master
+id_rsa is private key which create by above method.
+---------------------------------------------------------------------------------------------------
+
+
+
+### Quick Method with explain
+
+Check exist ssh keys are create but not added to ssh-agent (all of ssh keys which created)
+------- Checking Command -----------------------------------------------------
+ls -al ~/.ssh
+=========== Result EXAMPLE ==========
+id_rsa.pub
+id_ecdsa.pub
+id_ed25519.pub
+--- or etc -----
+If .pub key file show after command like below example that means exist .ssh key, now we can use exist .ssh key.
+
+
+
+Generate New SSH
+----------- Generating Command ---------------------------------------------------
+ssh-keygen
+=========== Result EXAMPLE ===========================
+enerating public/private rsa key pair.
+Enter file in which to save the key (/home/asifulmamun/.ssh/id_rsa):	#---- Enter (you can give rsa name) -------
+Enter passphrase (empty for no passphrase):	#------ Enter or any passphrase then Enter ---------
+Enter same passphrase again:	#------ Enter or any passphrase then Enter ---------
+Your identification has been saved in /home/asifulmamun/.ssh/id_rsa
+Your public key has been saved in /home/asifulmamun/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:diTy6dgq778haYmvfgfdk4B/rgwXbBjNUKgfDLEnI0 asifulmamun@asifulmamun-ubuntu
+The key's randomart imagdge is:
++---[RSA 4524]----+
+|                 |
+| o               |
+|o .     |
+|o=+o   o o       |
+|*Eoo S .      |
+|*+. o=.+ .       |
+|B+ =+ o.         |
+|=+=+o+.          |
+| .++=O=          |
++----[SHA256]-----+
+
+
+
+
+Adding your SSH key to the ssh-agent, Start the ssh-agent in the background.
+------------- command ------------------------------------------------------------------
+eval "$(ssh-agent -s)"
+=========== Result EXAMPLE ===========
+Agent pid 157952
+
+
+Add your SSH private key to the ssh-agent (id_rsa replace with your own rsa if you given before when created ssh-keygen)
+---------------------- SSH Key add to agent ------------------------------------------------------------------
+ssh-add ~/.ssh/id_rsa
+=========== Result EXAMPLE ===========
+Enter passphrase for /home/asifulmamun/.ssh/id_rsa: 	# ------ Enter or passphrase then Enter--------
+Identity added: /home/asifulmamun/.ssh/id_rsa (asifulmamun@asifulmamun-ubuntu)
+
+
+
+Check which or how many keys are added to ssh-agent or how many keys are exist or available to ssh-agent
+--------------- ssh-keys check which are eixst to agent --------------------------------------------------------
+ssh-add -l
+=========== Result EXAMPLE ===========
+4096 SHA256:WTMrtqE2MF5FS2Ff/Y4BHcU0oTC5JlsvoSgP4YCqavQ My default ssh (RSA)
+
+
+
+Now need to copy .ssh key from device, Before need installed 'apt-get install xclip' - if 'xclip' installed try to below process or installation command is 'sudo apt-get install xclip' after install then follow below process.
+(id_rsa replace with your own ****.pub if you given before when created ssh-keygen)
+----------------- Copy Command ---------------------------------------------------
+xclip -selection clipboard < ~/.ssh/id_rsa.pub
+========== No Output ============
+Go to github or .ssh option to any ssh-server where requre and paste your copied ssh key.
+
+
+-------------- PUSHING TIME / MULTI PRIVATE KEY WORK MULTI ACCOUNT @github ------------------------
+---------------------------------------------------------------------------------------------------
+Creat New SSH> Add public key to another github or exist github> comman with private key like below
+        $ GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa' git push origin master
+id_rsa is private key which create by above method.
+---------------------------------------------------------------------------------------------------
+
+
+@asifulmamun
+Source: Github - Doc
