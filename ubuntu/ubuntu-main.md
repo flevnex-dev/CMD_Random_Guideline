@@ -32,9 +32,9 @@
 
 [Apache2 Problem](06-APACHE2-2-PHP-PHPMYADMIN-problem-Ubuntu20-mainly-for-APACHE2.md)
 
-## 07 SSH Keygen
+## 07 SSH Keygen Generate and Add Github
 
-[SSH Keygen](07-Ubuntu-SSH-Key-Generate-and-add-Github_tested.txt)
+[SSH Keygen and Adding to GitHub](07-Ubuntu-SSH-Key-Generate-and add-Github_tested.txt)
 
 ## 08 Audio Input Output
 
@@ -63,6 +63,14 @@
 ## 14 GCP Connect with Ubuntu
 
 [GCP Connect with Ubuntu](14-gcp-connect-with-ubuntu.txt)
+
+## 15 Nodejs
+
+[Nodejs](15-Nodejs.md)
+
+## 16 Git
+
+[Git](16-git.md)
 
 ---
 
