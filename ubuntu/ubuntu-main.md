@@ -16,6 +16,8 @@
 
 - [Nginx Custom multi server](03.2-nginx-multi-custom-server-php7.4-mysql-wordpress.md)
 
+- [Nginx CommandLine](03.3-nginx-cmd.md)
+
 ---
 
 [BACK Main](../README.md)
